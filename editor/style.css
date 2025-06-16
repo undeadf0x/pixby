@@ -1,0 +1,19 @@
+:root {
+    font-family: sans-serif;
+}
+
+body {
+    background: #333;
+}
+
+#drawingCanvas {
+    position: fixed;
+    left: 0;
+    top: 0;
+    image-rendering: pixelated;
+    cursor: url("../assets/pen_cursor.png"), auto;
+}
+
+#backgroundCanvas {
+    position: fixed;
+}
