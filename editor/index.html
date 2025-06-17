@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
     <script src="./scripts/utils/chroma.cjs"></script>
     <script type="module" src="./scripts/main.js"></script>
 </head>
+
 <body>
     <canvas id="backgroundCanvas"></canvas>
 
@@ -24,29 +26,51 @@
     <div class="paletteContainer"></div>
 
     <div id="ui">
-        <input type="color" id="primaryColorPicker">
-        <input type="color" id="secondaryColorPicker">
-        <div id="toolButtons">
-            <button data-tool="pen">Pen</button>
-            <button data-tool="eraser">Eraser</button>
-            <button data-tool="box-select">Box Select</button>
-            <button data-tool="fill">Fill</button>
+        <div id="top"></div>
+        <div id="left">
+            <div id="toolButtons">
+                <button title="Pen - P" data-tool="pen">
+                    <img src="../assets/icon_pen.png" class="icon">
+                </button>
+
+                <button title="Eraser - E" data-tool="eraser">
+                    <img src="../assets/icon_eraser.png" class="icon">
+                </button>
+
+                <!-- <button title="Box Select - S" data-tool="box-select">
+                    <img src="../assets/icon_boxselect.png" class="icon">
+                </button>
+
+                <button title="Elipse Select - M" data-tool="ellipse-select">
+                    <img src="../assets/icon_ellipseselect.png" class="icon">
+                </button> -->
+
+            </div>
+            <div id="colorPickers">
+                <input type="color" id="primaryColorPicker">
+                <input type="color" id="secondaryColorPicker">
+            </div>
+
         </div>
-    
-    
-        <div id="output">
-            <b>Welcome to Pixby!</b>
-            <br>
-            Scroll to zoom, middle click and drag to pan
-            <br>
-            "x" to swap colors
-            <br>
-            Left click to draw with primary color
-            <br>
-            Right click to draw with secondary
-            <br><br>
-            <a target="_blank" href="https://github.com/undeadf0x/pixby">Github</a>
+
+        <div id="right">
+            <div id="output">
+                <b>Welcome to Pixby!</b>
+                <br>
+                Scroll to zoom, middle click and drag to pan
+                <br>
+                "x" to swap colors
+                <br>
+                Left click to draw with primary color
+                <br>
+                Right click to draw with secondary
+                <br><br>
+                <a target="_blank" href="https://github.com/undeadf0x/pixby">Github</a>
+            </div>
         </div>
+        
+        <div id="bottom"></div>
     </div>
 </body>
+
 </html>

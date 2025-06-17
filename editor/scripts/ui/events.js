@@ -30,7 +30,7 @@ function handleMouseDown(e) {
     tools[appState.tool].handlers.mouseDown(e);
     
     if (appState.cursor.wheelDown) {
-        drawingCanvas.style.cursor = `url("../assets/movement_cursor.png"), auto`;
+        drawingCanvas.style.cursor = `url("../assets/cursor_movement.png"), auto`;
     }
     
     if (inCanvas(e.x, e.y)) {
@@ -45,7 +45,7 @@ function handleMouseUp(e) {
     if (e.button === 1) appState.cursor.wheelDown = false;
     if (e.button === 2) appState.cursor.rightDown = false;
     if (!appState.cursor.wheelDown) {
-        drawingCanvas.style.cursor = `url("../assets/${tools[appState.tool].cursor}_cursor.png") ${tools[appState.tool].offset[0]} ${tools[appState.tool].offset[1]}, auto`;
+        drawingCanvas.style.cursor = `url("../assets/cursor_${tools[appState.tool].cursor}.png") ${tools[appState.tool].offset[0]} ${tools[appState.tool].offset[1]}, auto`;
     }
     tools[appState.tool].handlers.mouseUp(e);
 }

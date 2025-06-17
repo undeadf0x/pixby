@@ -72,6 +72,6 @@ export const tools = {
 export function setTool(toolID) {
     if (toolID in tools) {
         appState.tool = toolID;
-        drawingCanvas.style.cursor = `url("../assets/${tools[toolID].cursor}_cursor.png") ${tools[toolID].offset[0]} ${tools[toolID].offset[1]}, auto`
+        drawingCanvas.style.cursor = `url("../assets/cursor_${tools[toolID].cursor}.png") ${tools[toolID].offset[0]} ${tools[toolID].offset[1]}, auto`
     }
 }

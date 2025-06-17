@@ -1,18 +1,84 @@
 :root {
     font-family: sans-serif;
+    cursor: url("../assets/cursor_default.png"), auto;
+    font-size: .8em;
 }
 
 body {
-    background: #333;
+    background: rgb(40, 45, 45);
+    height: 100vh;
 }
 
 #ui {
     position: fixed;
+    #left, #right, #top, #bottom {
+        background: rgb(25, 30, 30);
+    }
+    #left, #right {
+        top: 25px;
+        padding: 5px;
+        height: calc(100vh - 200px - 4px - 25px - 10px);
+        position: fixed;
+        border-bottom: 2px solid rgb(45, 55, 55);
+        border-top: 2px solid rgb(45, 55, 55);
+    }
+    #left {
+        left: 0;
+        #toolButtons {
+            display: grid;
+            grid: auto-flow 60px / repeat(2, 60px);
+            .active img {
+                background: #455;
+            }
+            button {
+                all: unset;
+                image-rendering: pixelated;
+                border-image:  url("../assets/border.png") 16 / 6px / 0 round;
+                border-image-outset: 2px;
+                border-width:  10px;
+                border-style:  solid;
+                margin: 3px;
+                width: auto;
+                height: auto;
+                img {
+                    background: rgb(0, 0, 0);
+                    margin: -9px;
+                    padding: 9px;
+                    width: calc(100%);
+                    image-rendering: pixelated;
+                }
+            }
+        }
+        #colorPickers {
+            position: absolute;
+            bottom: 5px;
+            left: 15px;
+            input {
+                all: unset;
+                height: 60px;
+                width: 60px;
+                border-image:  url("../assets/border.png") 16 / 6px / 0 round;
+                border-width:  3px;
+                border-style:  solid;
+            }
+            #primaryColorPicker {
+                position: relative;
+                bottom: -30px;
+            }
+            #secondaryColorPicker {
+                position: relative;
+                left: 35px;
+                z-index: -1;
+            }
+        }
+    }
 }
+
+
+
 
 #output {
     color: white;
-    background: #000c;
     padding: 10px;
     a {
         color: cyan !important;
@@ -35,4 +101,29 @@ body {
 #overlay {
     mix-blend-mode: difference;
     position: fixed;
+}
+
+
+
+
+
+
+#right {
+    right: 0;
+}
+
+#top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 25px;
+}
+
+#bottom {
+    position: fixed;
+    height: 200px;
+    width: 100vw;
+    bottom: 0;
+    left: 0;
 }

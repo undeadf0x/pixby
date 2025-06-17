@@ -13,11 +13,19 @@ export const drawCtx = drawingCanvas.getContext("2d");
 export const bufferDrawCtx = bufferDrawingCanvas.getContext("2d");
 export const bgCtx = backgroundCanvas.getContext("2d");
 
+export const leftPanel = document.querySelector("#ui#left")
+export const rightPanel = document.querySelector("#ui#right")
+
+
 export const toolButtons = document.querySelector("#toolButtons").children;
 for (let i = 0; i < toolButtons.length; i++) {
     let toolButton = toolButtons.item(i);
     toolButton.addEventListener("click", event => {
         setTool(toolButton.dataset.tool)
+        for (let i = 0; i < toolButtons.length; i++) {
+          toolButtons[i].classList.remove("active");
+        }
+        toolButton.classList.add("active");
     })
 }
 
