@@ -1,3 +1,3 @@
-- [ ] Trackpad, touchscreen support
+- [ ] touchscreen support, better trackpad support (need testers for both!)
 - [ ] Undo/Redo system
-- UI Polishing
+- [ ] UI Polishing

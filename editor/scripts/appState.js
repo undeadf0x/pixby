@@ -1,15 +1,39 @@
 export const appState = {
-    camera: { x: 0, y: 0, scale: 1 },
-    canvas: { width: undefined, height: undefined },
-    selectedColors: [chroma("#f00"), chroma("#f0f")],
+    camera: {
+        x: 0,
+        y: 0,
+        scale: 1
+    },
+    canvas: {
+        width: undefined,
+        height: undefined },
+    selectedColors: [
+        chroma("#fff"),
+        chroma("#000")
+    ],
     tool: "pen",
-    palette: { title: undefined, colors: undefined },
+    palette: {
+        title: undefined,
+        colors: undefined
+    },
     keysPressed: [],
     cursor: {
-        pX: 0, pY: 0, x: 0, y: 0,
-        leftDown: false, wheelDown: false
+        pX: 0,
+        pY: 0,
+        x: 0,
+        y: 0,
+        
+        leftDown: false,
+        rightDown: false,
+        wheelDown: false,
+
+        inCanvas: false,
+        previousInCanvas: false,
     },
-    checkerboardColors: [chroma("#444"), chroma("#777")],
+    checkerboardColors: [
+        chroma("#444"),
+        chroma("#777")
+    ],
     gridEnabled: true,
     checkerEnabled: true,
 };

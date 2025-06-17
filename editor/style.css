@@ -17,3 +17,7 @@ body {
 #backgroundCanvas {
     position: fixed;
 }
+
+#output {
+    color: white;
+}

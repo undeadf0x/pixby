@@ -12,9 +12,10 @@
     <input type="color" id="primaryColorPicker">
     <input type="color" id="secondaryColorPicker">
 
-    <button id="toolButtonPen">Pen</button>
-    <button id="toolButtonFill">Fill</button>
-    <button id="toolButtonEraser">Eraser</button>
+    <button id="toolButtonPen" onclick="setTool('pen')">Pen</button>
+    <button disabled id="toolButtonEraser" onclick="setTool('eraser')">Eraser</button>
+    <button disabled id="toolButtonEraser" onclick="setTool('select')">Select</button>
+    <button disabled id="toolButtonFill" onclick="setTool('fill')">Fill</button>
 
     <div id="output"></div>
     <canvas id="backgroundCanvas"></canvas>
