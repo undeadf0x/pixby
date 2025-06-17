@@ -45,7 +45,7 @@ function handleMouseUp(e) {
     if (e.button === 1) appState.cursor.wheelDown = false;
     if (e.button === 2) appState.cursor.rightDown = false;
     if (!appState.cursor.wheelDown) {
-        drawingCanvas.style.cursor = `url("../assets/${appState.tool}_cursor.png") ${tools[appState.tool].offset[0]} ${tools[appState.tool].offset[1]}, auto`;
+        drawingCanvas.style.cursor = `url("../assets/${tools[appState.tool].cursor}_cursor.png") ${tools[appState.tool].offset[0]} ${tools[appState.tool].offset[1]}, auto`;
     }
     tools[appState.tool].handlers.mouseUp(e);
 }

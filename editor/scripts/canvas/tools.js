@@ -9,7 +9,8 @@ export const tools = {
         offset: [0,0],
         handlers: {
             mouseDown: (event) => {
-                setPixel(drawCtx, ...screenToCanvas(appState.cursor.x, appState.cursor.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1]);
+                setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1]);
+                drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
             },
 
             mouseUp: (event) => {/* Does nothing */},
@@ -26,10 +27,11 @@ export const tools = {
     },
     "eraser": {
         cursor: "eraser",
-        offset: [0,16],
+        offset: [0,32],
         handlers: {
             mouseDown: (event) => {
-                setPixel(drawCtx, ...screenToCanvas(appState.cursor.x, appState.cursor.y), chroma("#fff"), 0);
+                setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1], 0);
+                drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
             },
 
             mouseUp: (event) => {/* Does nothing */},
@@ -46,21 +48,18 @@ export const tools = {
     },
     "box-select": {
         cursor: "crosshair",
-        offset: [0,16],
+        offset: [16,16],
         handlers: {
             mouseDown: (event) => {
-                setPixel(drawCtx, event.x, event.y, chroma("#fff"), 0);
+                
             },
 
-            mouseUp: (event) => {/* Does nothing */},
+            mouseUp: (event) => {
+                
+            },
 
             mouseMove: (event) => {
-                if (appState.cursor.leftDown || appState.cursor.rightDown) {
-                    for (let point of linePoints(...screenToCanvas(appState.cursor.pX, appState.cursor.pY), ...screenToCanvas(event.x,event.y))) {
-                        setPixel(bufferDrawCtx, point.x,point.y, appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1], 0);
-                    }
-                    drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
-                }
+
             }
         }
     }
@@ -69,6 +68,6 @@ export const tools = {
 export function setTool(toolID) {
     if (toolID in tools) {
         appState.tool = toolID;
-        drawingCanvas.style.cursor = `url("../assets/${toolID}_cursor.png") ${tools[toolID].offset[0]} ${tools[toolID].offset[1]}, auto`
+        drawingCanvas.style.cursor = `url("../assets/${tools[toolID].cursor}_cursor.png") ${tools[toolID].offset[0]} ${tools[toolID].offset[1]}, auto`
     }
 }
