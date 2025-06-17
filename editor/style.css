@@ -6,18 +6,23 @@ body {
     background: #333;
 }
 
+#ui {
+    position: fixed;
+}
+
 #drawingCanvas {
     position: fixed;
     left: 0;
     top: 0;
     image-rendering: pixelated;
-    cursor: url("../assets/pen_cursor.png"), auto;
 }
 
 #backgroundCanvas {
     position: fixed;
+    image-rendering: pixelated;
 }
 
-#output {
-    color: white;
+#overlay {
+    mix-blend-mode: difference;
+    position: fixed;
 }

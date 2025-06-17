@@ -12,3 +12,7 @@ export function setBackgroundCheckerColors(color1, color2) {
         }
     }
 }
+
+export function drawOutline(data, x,y, w,h) {
+    
+}

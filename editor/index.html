@@ -9,21 +9,26 @@
     <script type="module" src="./scripts/main.js"></script>
 </head>
 <body>
-    <input type="color" id="primaryColorPicker">
-    <input type="color" id="secondaryColorPicker">
-
-    <button id="toolButtonPen" onclick="setTool('pen')">Pen</button>
-    <button disabled id="toolButtonEraser" onclick="setTool('eraser')">Eraser</button>
-    <button disabled id="toolButtonEraser" onclick="setTool('select')">Select</button>
-    <button disabled id="toolButtonFill" onclick="setTool('fill')">Fill</button>
-
-    <div id="output"></div>
     <canvas id="backgroundCanvas"></canvas>
 
     <canvas id="drawingCanvas"></canvas>
     <svg id="overlay">
-        
+        <path id="outline" fill="none" stroke="white" stroke-width="2px" d=""></path>
     </svg>
     <div class="paletteContainer"></div>
+
+    <div id="ui">
+        <input type="color" id="primaryColorPicker">
+        <input type="color" id="secondaryColorPicker">
+        <div id="toolButtons">
+            <button data-tool="pen">Pen</button>
+            <button data-tool="eraser">Eraser</button>
+            <button data-tool="select">Select</button>
+            <button data-tool="pen">Fill</button>
+        </div>
+    
+    
+        <div id="output"></div>
+    </div>
 </body>
 </html>

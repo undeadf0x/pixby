@@ -1,10 +1,10 @@
 import { drawCtx } from "./setup.js";
 
-export function setPixel(ctx, x, y, color) {
+export function setPixel(ctx, x, y, color, alpha = 255) {
   if (ctx.constructor === CanvasRenderingContext2D) {
-    const arr = new Uint8ClampedArray([...color.rgb(), 255]);
+    const arr = new Uint8ClampedArray([...color.rgb(), alpha]);
     const data = new ImageData(arr, 1);
-    drawCtx.putImageData(data, x, y);
+    ctx.putImageData(data, x, y);
   }
 }
 
