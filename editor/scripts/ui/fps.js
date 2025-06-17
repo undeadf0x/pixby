@@ -7,7 +7,6 @@ export function refreshLoop() {
       while (times.length && times[0] <= now - 1000) times.shift();
       times.push(now);
       fps = times.length;
-      document.querySelector("#output").innerText = `FPS: ${fps}`;
       requestAnimationFrame(loop);
     }
   

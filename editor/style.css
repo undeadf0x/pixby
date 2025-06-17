@@ -10,6 +10,12 @@ body {
     position: fixed;
 }
 
+#output {
+    color: white;
+    background: #000c;
+    padding: 10px;
+}
+
 #drawingCanvas {
     position: fixed;
     left: 0;

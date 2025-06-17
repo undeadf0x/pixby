@@ -9,8 +9,10 @@ export const tools = {
         offset: [0,0],
         handlers: {
             mouseDown: (event) => {
-                setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1]);
-                drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
+                if (appState.cursor.leftDown || appState.cursor.rightDown) {
+                    setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1]);
+                    drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
+                }
             },
 
             mouseUp: (event) => {/* Does nothing */},
@@ -30,8 +32,10 @@ export const tools = {
         offset: [0,32],
         handlers: {
             mouseDown: (event) => {
-                setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1], 0);
-                drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
+                if (appState.cursor.leftDown || appState.cursor.rightDown) {
+                    setPixel(bufferDrawCtx, ...screenToCanvas(event.x,event.y), appState.selectedColors[appState.cursor.leftDown === true ? 0 : 1], 0);
+                    drawCtx.putImageData(bufferDrawCtx.getImageData(0,0, appState.canvas.width, appState.canvas.height), 0,0);
+                }
             },
 
             mouseUp: (event) => {/* Does nothing */},
