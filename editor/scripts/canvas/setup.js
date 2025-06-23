@@ -2,7 +2,7 @@ import { appState } from "../appState.js";
 import { setCameraPosition, setCanvasDimensions, setCameraScale } from "./camera.js";
 import { windowCenter } from "../utils/helpers.js";
 import { setPrimaryColor, setSecondaryColor, setPalette, Palette } from "../appState.js";
-import { setBackgroundCheckerColors } from "../ui/ui.js";
+import { setBackgroundCheckerColors, setupFileMenuBar } from "../ui/ui.js";
 import { setTool } from "./tools.js";
 
 export const drawingCanvas = document.querySelector("#drawingCanvas");
@@ -37,6 +37,7 @@ export function updateBackground() {
 
 export function setup() {
   setTool(appState.tool)
+  setupFileMenuBar();
   setCanvasDimensions(16, 16);
   setCameraPosition(...windowCenter().map((component) => {return component - 8}));
 

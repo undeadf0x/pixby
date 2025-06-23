@@ -26,7 +26,7 @@ function handleMouseDown(e) {
     appState.cursor.leftDown = e.button === 0;
     appState.cursor.wheelDown = e.button === 1;
     appState.cursor.rightDown = e.button === 2;
-
+    
     tools[appState.tool].handlers.mouseDown(e);
     
     if (appState.cursor.wheelDown) {
@@ -57,7 +57,7 @@ function handleKeyDown(e) {
             setCameraScale(1.1, appState.cursor.x, appState.cursor.y, false);
             break;
         case "-":
-            setCameraScale(.9, ...windowCenter(), true);
+            setCameraScale(.9, appState.cursor.x, appState.cursor.y, true);
             break;
         case "x":
             let tempColors = appState.selectedColors.slice(); // Slicing to create a shallow copy of the array, otherwise they sync up

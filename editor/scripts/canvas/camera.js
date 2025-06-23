@@ -4,8 +4,6 @@ import { updateBackground } from "./setup.js";
 import { bufferDrawingCanvas } from "./setup.js";
 
 export function setCameraPosition(x, y, relative = false) {
-  x = Math.floor(x);
-  y = Math.floor(y);
   appState.camera.x = relative ? appState.camera.x + x : x;
   appState.camera.y = relative ? appState.camera.y + y : y;
 

@@ -1,3 +1,5 @@
+import { drawCtx } from "./canvas/setup.js";
+
 export const appState = {
     camera: {
         x: 0,
@@ -36,6 +38,30 @@ export const appState = {
     ],
     gridEnabled: true,
     checkerEnabled: true,
+    undoStack: {
+        limit: 256,
+        stack: [],
+        push: (type, ) => {
+            if (appState.undoStack.stack.length >= appState.undoStack.limit) {
+                appState.undoStack.stack.shift();
+            }
+            appState.undoStack.stack.push();
+            return appState.undoStack.stack
+        },
+        pop: () => {
+            return stack.pop()
+        }
+    },
+    redoStack: {
+        limit: 256,
+        stack: [],
+        push: () => {
+
+        },
+        pop: () => {
+
+        }
+    }
 };
 
 export function setPrimaryColor(color) {
